@@ -14,7 +14,7 @@ import javax.persistence.*;
 @Setter
 public abstract class Item {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ITEM_ID")
     private Long id;
 
