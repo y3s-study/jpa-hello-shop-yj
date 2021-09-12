@@ -38,4 +38,17 @@ public class ItemController {
         model.addAttribute("items", items);
         return "item/list";
     }
+
+    @GetMapping("/{itemId}/edit")
+    public String updateItemForm(@PathVariable("itemId") Long itemId, Model model) {
+        Book book = itemService.findBook(itemId);
+        model.addAttribute("item", book);
+        return "item/update";
+    }
+
+    @PostMapping("/edit")
+    public String updateItem(@ModelAttribute Book book) {
+        itemService.saveItem(book);
+        return "redirect:/items";
+    }
 }

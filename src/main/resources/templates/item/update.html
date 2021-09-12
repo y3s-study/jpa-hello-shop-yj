@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/common :: head(~{::title})">
+    <title>JPA Shop - Item update</title>
+</head>
+<body>
+
+<nav th:replace="fragments/common :: navbar"></nav>
+
+<div class="container">
+    <div class="mb-3"></div>
+    <form role="form" action="/items/edit" method="post">
+        <input type="hidden" name="id" th:value="${item.id}">
+
+        <div class="mb-3">
+            <label for="name">상품명</label>
+            <input type="text" name="name" class="form-control" id="name" th:value="${item.name}">
+        </div>
+        <div class="mb-3">
+            <label for="price">가격</label>
+            <input type="number" name="price" class="form-control" id="price" th:value="${item.price}">
+        </div>
+        <div class="mb-3">
+            <label for="stockQuantity">수량</label>
+            <input type="number" name="stockQuantity" class="form-control" id="stockQuantity" th:value="${item.stockQuantity}">
+        </div>
+        <div class="mb-3">
+            <label for="author">저자</label>
+            <input type="text" name="author" class="form-control" id="author" th:value="${item.author}">
+        </div>
+        <div class="mb-3">
+            <label for="isbn">ISBN</label>
+            <input type="text" name="isbn" class="form-control" id="isbn" th:value="${item.isbn}">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+</body>
+</html>
