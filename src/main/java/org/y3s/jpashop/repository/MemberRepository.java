@@ -26,4 +26,8 @@ public class MemberRepository {
                 .setParameter("name", name)
                 .getResultList();
     }
+
+    public Member findOne(Long memberId) {
+        return em.find(Member.class, memberId);
+    }
 }

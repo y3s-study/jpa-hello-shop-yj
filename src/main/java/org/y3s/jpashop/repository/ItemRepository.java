@@ -29,4 +29,8 @@ public class ItemRepository {
     public Book findBook(Long itemId) {
         return em.find(Book.class, itemId);
     }
+
+    public Item findOneItem(Long itemId) {
+        return em.find(Item.class, itemId);
+    }
 }
