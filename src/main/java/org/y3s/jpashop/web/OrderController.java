@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.y3s.jpashop.domain.item.Item;
 import org.y3s.jpashop.domain.member.Member;
+import org.y3s.jpashop.domain.order.Order;
 import org.y3s.jpashop.service.ItemService;
 import org.y3s.jpashop.service.MemberService;
 import org.y3s.jpashop.service.OrderService;
@@ -35,6 +36,14 @@ public class OrderController {
     public String order(Long memberId, Long itemId, int count) {
         orderService.order(memberId, itemId, count);
         return "redirect:/";
+    }
+
+    @GetMapping("/orders")
+    public String orderList(Model model) {
+        List<Order> orders = orderService.findAll();
+        model.addAttribute("orders", orders);
+
+        return "/order/orderList";
     }
 
 }

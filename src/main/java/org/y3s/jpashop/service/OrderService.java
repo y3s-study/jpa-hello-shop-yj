@@ -12,6 +12,8 @@ import org.y3s.jpashop.repository.ItemRepository;
 import org.y3s.jpashop.repository.MemberRepository;
 import org.y3s.jpashop.repository.OrderRepository;
 
+import java.util.List;
+
 @Service
 @AllArgsConstructor
 @Transactional
@@ -30,5 +32,9 @@ public class OrderService {
 
         orderRepository.save(order);
         return order.getId();
+    }
+
+    public List<Order> findAll() {
+        return orderRepository.findAll();
     }
 }
